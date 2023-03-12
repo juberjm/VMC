@@ -86,6 +86,23 @@ class MakeAppointment extends Component {
       // currentDate.getHours() +
       "-" +
       currentDate.getMinutes();
+          // var currentDate = new Date();
+          // let curHr =
+          // currentDate.getHours() < 10
+          // ? "0" + currentDate.getHours()
+          // : currentDate.getHours();
+          // var datetime =
+          // currentDate.getFullYear() +
+          // "-" +
+          // (currentDate.getMonth() + 1) +
+          // "-" +
+          // currentDate.getDate() +
+          // " " +
+          // curHr +
+          // ":" +
+          // currentDate.getMinutes() +
+          // ":00";
+
     const appointmentDate = this.state.aptDate.concat(
       "-",
       this.state.aptTime,

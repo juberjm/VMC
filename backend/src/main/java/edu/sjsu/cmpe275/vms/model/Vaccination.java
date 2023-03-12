@@ -5,6 +5,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;
 import javax.persistence.*;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
 @Table(name = "vaccination")
 public class Vaccination {
@@ -49,6 +52,17 @@ public class Vaccination {
 //        this.numberOfShots = numberOfShots;
 //        this.shotInternalVal = shotInternalVal;
 //        this.duration = duration;
+    
+    						//CODE ADDED BY FARAZ 11-03-2023 
+    @Fetch(FetchMode.SELECT)
+    @ManyToMany(mappedBy = "vaccinations", fetch = FetchType.EAGER)
+    private List<Appointment> appointments;
+
+    @Fetch(FetchMode.SELECT)
+    @ManyToMany(mappedBy = "vaccinations", fetch = FetchType.EAGER)
+    private List<Clinic> clinics;
+    						//CODE ADDED BY FARAZ 11-03-2023 
+    
 //    }
     public Vaccination(String vaccineName, List<Disease> diseases, String manufacturer, int numberOfShots, int shotInternalVal, int duration) {
         this.vaccineName = vaccineName;
